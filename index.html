@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fast, accessible currency converter with live exchange rates for 150+ currencies.">
+    <meta name="theme-color" content="#212f3d">
+    <title>Currency Converter</title>
+    <!-- Favicon (inline SVG, no extra file needed) -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💱%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+
+<body>
+    <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+
+    <main class="container">
+        <h1>Currency Converter</h1>
+
+        <form id="converterForm" novalidate>
+            <div class="amount">
+                <label for="amountInput">Enter Amount</label>
+                <input type="text" id="amountInput" inputmode="decimal" autocomplete="off" value="1"
+                    aria-describedby="amountError">
+                <span id="amountError" class="field-error" role="alert"></span>
+            </div>
+
+            <div class="dropdown">
+                <div class="select-container">
+                    <div class="from">
+                        <label for="fromSelect">From</label>
+                        <div class="box">
+                            <img src="https://flagsapi.com/US/flat/64.png" alt="" width="32" height="32">
+                            <select name="from" id="fromSelect" aria-label="From currency"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="icon stop-animation" id="swapBtn" aria-label="Swap currencies"
+                    title="Swap currencies">
+                    <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                </button>
+
+                <div class="select-container">
+                    <div class="to">
+                        <label for="toSelect">To</label>
+                        <div class="box">
+                            <img src="https://flagsapi.com/BD/flat/64.png" alt="" width="32" height="32">
+                            <select name="to" id="toSelect" aria-label="To currency"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result">
+                <div class="rate" role="status" aria-live="polite"></div>
+                <div class="rate-secondary" aria-live="off"></div>
+                <div class="updated" id="updatedAt"></div>
+            </div>
+
+            <div class="form-error" id="formError" role="alert"></div>
+
+            <div class="actions">
+                <button type="submit" id="convertBtn">
+                    <span class="btn-label">Get Exchange</span>
+                    <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+                <button type="button" id="copyBtn" class="secondary-btn" title="Copy result">
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i> Copy
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://kit.fontawesome.com/b01313c786.js" crossorigin="anonymous"></script>
+    <script src="c-code.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

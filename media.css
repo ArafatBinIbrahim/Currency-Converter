@@ -1,0 +1,118 @@
+@media (max-width:575.98px) {
+    & .container {
+        width: 90vw !important;
+
+        & h1 {
+            font-size: 1.7rem;
+        }
+
+        & form {
+            padding: 0 !important;
+            padding-top: 1rem !important;
+        }
+
+        & .box img {
+            width: 50px;
+        }
+    }
+
+    .dropdown {
+        margin: 2rem 0 !important;
+    }
+
+    .icon i {
+        font-size: 1.3rem !important;
+    }
+
+    .rate {
+        font-size: 1rem !important;
+    }
+
+    form select {
+        font-size: .9rem !important;
+    }
+
+    p,
+    label {
+        font-size: .9rem !important;
+    }
+
+    .actions {
+        flex-direction: column !important;
+    }
+
+    .secondary-btn {
+        width: 100% !important;
+        justify-content: center;
+    }
+
+    .theme-toggle {
+        top: .75rem !important;
+        right: .75rem !important;
+        width: 2.25rem !important;
+        height: 2.25rem !important;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    & .container {
+        width: 70vw !important;
+
+        & h1 {
+            font-size: 1.7rem;
+        }
+
+        & form {
+            padding: 0 !important;
+            padding-top: 1rem !important;
+        }
+
+        & .box img {
+            width: 50px;
+        }
+    }
+
+    .dropdown {
+        margin: 2rem 0 !important;
+    }
+
+    .icon i {
+        font-size: 1.3rem !important;
+    }
+
+    form select {
+        font-size: .9rem !important;
+    }
+
+    .actions {
+        flex-direction: column !important;
+    }
+
+    .secondary-btn {
+        width: 100% !important;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    & .container {
+        width: 55vw !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    & .container {
+        width: 45vw !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    & .container {
+        width: 40vw !important;
+    }
+
+    & form {
+        padding: 1.5rem !important;
+    }
+}

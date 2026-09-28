@@ -1,0 +1,330 @@
+:root {
+    --bg-1: #5d6d7e;
+    --bg-2: #212f3d;
+    --card-border: #212f3d;
+    --text: #ffffff;
+    --text-muted: #cfd6dd;
+    --accent: #212f3d;
+    --accent-glow: #5d6d7e;
+    --error: #ff6b6b;
+    --success: #7ee787;
+}
+
+[data-theme="light"] {
+    --bg-1: #eef2f7;
+    --bg-2: #c9d6e3;
+    --card-border: #ffffff;
+    --text: #16222d;
+    --text-muted: #4a5a68;
+    --accent: #2e4a63;
+    --accent-glow: #a9c1d6;
+    --error: #d64545;
+    --success: #2f9e44;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background: radial-gradient(var(--bg-1), var(--bg-2));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    transition: background .3s ease, color .3s ease;
+
+    & p,
+    & label {
+        font-size: 1.3rem;
+    }
+
+    & .container {
+        width: 35vw;
+        padding: 1rem;
+        border: 1px solid var(--card-border);
+        -webkit-backdrop-filter: blur(1rem);
+        backdrop-filter: blur(1rem);
+        box-shadow: 0 0 1rem var(--card-border);
+        border-radius: 1rem;
+
+        & h1 {
+            text-align: center;
+        }
+
+        & form {
+            padding: 2rem;
+
+            & .amount {
+                position: relative;
+
+                & label {
+                    display: block;
+                    margin-bottom: .4rem;
+                }
+            }
+
+            & .field-error,
+            & .form-error {
+                display: block;
+                min-height: 1.2rem;
+                margin-top: .35rem;
+                font-size: .85rem;
+                color: var(--error);
+            }
+
+            & .dropdown {
+                margin: 3rem 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                & .icon {
+                    width: 3rem;
+                    height: 3rem;
+                    flex: 0 0 auto;
+                    background: transparent;
+                    border: none;
+                    color: var(--text);
+                    cursor: pointer;
+                    padding: .4rem;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background-color .2s ease, transform .2s ease;
+
+                    & i {
+                        font-size: 2rem;
+                        display: block;
+                    }
+
+                    &:hover,
+                    &:focus-visible {
+                        background-color: rgba(255, 255, 255, .12);
+                        outline: none;
+                    }
+                }
+
+                & .select-container {
+
+                    & label {
+                        display: block;
+                        margin-bottom: .4rem;
+                        font-size: 1rem;
+                        color: var(--text-muted);
+                        text-transform: uppercase;
+                        letter-spacing: .04em;
+                    }
+
+                    & .box {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: .5rem;
+                        padding: .35rem .75rem;
+                        box-shadow: 0 0 10px var(--accent-glow);
+                        border-radius: 1rem;
+
+                        & img {
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & form input,
+        select,
+        button {
+            width: 100%;
+            height: 3rem;
+            border: 1px solid var(--bg-1);
+            outline: none;
+            background: transparent;
+            border-radius: 1rem;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        & form input:focus,
+        & form select:focus {
+            border: 1px solid var(--accent);
+        }
+
+        & form input {
+            padding-left: 1rem;
+        }
+
+        & form input.has-error {
+            border-color: var(--error);
+        }
+
+        & form select {
+            background: transparent;
+            cursor: pointer;
+        }
+
+        & form select option {
+            text-align: center;
+            background-color: var(--bg-1);
+            color: #fff;
+        }
+
+        & .result {
+            text-align: center;
+            margin-top: .5rem;
+        }
+
+        & .rate {
+            font-size: 1.3rem;
+            font-weight: 600;
+            min-height: 1.8rem;
+        }
+
+        & .rate-secondary {
+            margin-top: .25rem;
+            font-size: .95rem;
+            color: var(--text-muted);
+            min-height: 1.2rem;
+        }
+
+        & .updated {
+            margin-top: .35rem;
+            font-size: .75rem;
+            color: var(--text-muted);
+            min-height: 1rem;
+        }
+
+        & .actions {
+            display: flex;
+            gap: .75rem;
+            margin-top: 1rem;
+        }
+
+        & form button[type="submit"] {
+            position: relative;
+            width: auto;
+            flex: 1 1 auto;
+            background-color: var(--accent);
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: .02em;
+            transition: opacity .2s ease, transform .15s ease;
+        }
+
+        & form button[type="submit"]:hover:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        & form button[type="submit"]:disabled {
+            opacity: .7;
+            cursor: not-allowed;
+        }
+
+        & .secondary-btn {
+            width: auto;
+            flex: 0 0 auto;
+            padding: 0 1.1rem;
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            white-space: nowrap;
+            transition: background-color .2s ease;
+        }
+
+        & .secondary-btn:hover {
+            background-color: rgba(255, 255, 255, .1);
+        }
+
+        & .secondary-btn.copied {
+            border-color: var(--success);
+            color: var(--success);
+        }
+    }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, .06);
+    color: var(--text);
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(.5rem);
+    backdrop-filter: blur(.5rem);
+    transition: transform .2s ease, background-color .2s ease;
+    z-index: 10;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    transform: rotate(15deg);
+    background-color: rgba(255, 255, 255, .16);
+    outline: none;
+}
+
+/* Spin icon */
+.play-animation {
+    animation: rotate .6s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.stop-animation {
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+/* Submit button loading spinner */
+.btn-spinner {
+    display: none;
+    width: 1rem;
+    height: 1rem;
+    margin-left: .5rem;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    animation: rotate .6s linear infinite;
+}
+
+.is-loading .btn-spinner {
+    display: inline-block;
+}
+
+.is-loading .btn-label {
+    opacity: .75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .play-animation,
+    .btn-spinner {
+        animation: none;
+    }
+}
